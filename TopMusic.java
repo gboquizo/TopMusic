@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * Implementa  un  programa  que  gestione  una  lista  de  las  canciones  m√°s 
- * escuchadas. El usuario podr√°:
+ * Implementa  un  programa  que  gestione  una  lista  de  las  canciones  m·s 
+ * escuchadas. El usuario podr·:
  * 
- * a. A√±adir una canci√≥n (en una posici√≥n) al TopMusic.
+ * a. AÒadir una canciÛn (en una posiciÛn) al TopMusic.
  * b. Sacar un elemento del TopMusic.
  * c. Subir un puesto en el TopMusic.
  * d. Bajar un puesto en el TopMusic.
  * e. Mostrar la lista TopMusic.
- * f. Mostrar la canci√≥n m√°s escuchada.
+ * f. Mostrar la canciÛn m·s escuchada.
  *
- * Sobre la canci√≥n se almacenar√° el t√≠tulo, artista o grupo y a√±o de grabaci√≥n
+ * Sobre la canciÛn se almacenar· el tÌtulo, artista o grupo y aÒo de grabaciÛn
  * 
- * @author Guillermo Boquizo S√°nchez
+ * @author Guillermo Boquizo S·nchez
  * @version 1.0
  */
 public class TopMusic {
@@ -33,10 +33,10 @@ public class TopMusic {
 	}
 	
 	/**
-	 * A√±ade una cancion al TopMusic
+	 * AÒade una cancion al TopMusic
 	 * 
 	 * @param cancion
-	 *            a a√±adir
+	 *            a aÒadir
 	 * @param titulo
 	 * @param artista
 	 * @param annoGrabacion
@@ -98,11 +98,11 @@ public class TopMusic {
 	 * Muestra el top Music
 	 */
 	String mostrarTopMusic() {
-		String cadena = "";
+		String top = "";
 		int i = 1;
 		for (Iterator<Cancion> iterator = topMusic.iterator(); iterator.hasNext();)
-			cadena += "\n" + (i++) + " " + iterator.next();
-		return cadena;
+			top += "\n" + (i++) + " " + iterator.next();
+		return top;
 }
 	/**
 	 * Muestra la cancion del top
