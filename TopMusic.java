@@ -1,7 +1,6 @@
 package listadoestructuras3.topMusic;
 
 import java.util.ArrayList;
-//import java.util.Iterator;
 
 /**
  * Implementa un programa que gestione una lista de las canciones más
@@ -92,7 +91,6 @@ public class TopMusic {
 	 */
 	StringBuilder mostrarTopMusic() {
 		StringBuilder top = new StringBuilder("");
-		//for (Iterator<Cancion> iterator = topMusic.iterator(); iterator.hasNext();)
 			if (topMusic.size() > 0) {
 				top.append("Top Ten:\n");
 				for (int i = 0; i < tamannoTop(); i++) {
