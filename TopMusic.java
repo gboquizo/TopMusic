@@ -117,11 +117,15 @@ public class TopMusic {
 	/**
 	 * Muestra la cancion del top
 	 */
-	String masEscuchada() {
-		if (topMusic.size() > 0)
-			return "Top 1: \n" + topMusic.get(0);
-		return "No hay canciones, introduce algunas primero";
-		
+	StringBuilder masEscuchada() {
+		StringBuilder one = new StringBuilder("");
+		if (topMusic.size() > 0){
+			for (int i = 0; i < tamannoTop(); i++) {
+				one.append("Top 1: \n" + topMusic.get(0).toString() + "\n");
+			}
+		}else
+				one.append("no hay canciones, introduce algunas primero");
+		return one;		
 	}
 
 	/**
