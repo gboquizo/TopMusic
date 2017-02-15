@@ -4,24 +4,24 @@ import utiles.Menu;
 import utiles.Teclado;
 
 /**
- * Implementa un programa que gestione una lista de las canciones m·s
- * escuchadas. El usuario podr·:
+ * Implementa un programa que gestione una lista de las canciones m√°s
+ * escuchadas. El usuario podr√°:
  * 
- * a. AÒadir una canciÛn (en una posiciÛn) al TopMusic. b. Sacar un elemento del
+ * a. A√±adir una canci√≥n (en una posici√≥n) al TopMusic. b. Sacar un elemento del
  * TopMusic. c. Subir un puesto en el TopMusic. d. Bajar un puesto en el
- * TopMusic. e. Mostrar la lista TopMusic. f. Mostrar la canciÛn m·s escuchada.
+ * TopMusic. e. Mostrar la lista TopMusic. f. Mostrar la canci√≥n m√°s escuchada.
  *
- * Sobre la canciÛn se almacenar· el tÌtulo, artista o grupo y aÒo de grabaciÛn
+ * Sobre la canci√≥n se almacenar√° el t√≠tulo, artista o grupo y a√±o de grabaci√≥n
  * 
- * @author Guillermo Boquizo S·nchez
+ * @author Guillermo Boquizo S√°nchez
  * @version 1.0
  */
 public class TestTopMusic {
 	private static TopMusic topMusic = new TopMusic();
 
 	public static void main(String[] args) {
-		Menu menu = new Menu("\nTop Music", new String[] { "AÒadir canciÛn", "Eliminar canciÛn", "Subir un puesto",
-				"Bajar un puesto", "Mostrar lista", "Mostrar la canciÛn m·s escuchada", "Salir" });
+		Menu menu = new Menu("\nTop Music", new String[] { "A√±adir canci√≥n", "Eliminar canci√≥n", "Subir un puesto",
+				"Bajar un puesto", "Mostrar Top Music", "Mostrar la canci√≥n m√°s escuchada", "Salir" });
 		int opcion;
 
 		do {
@@ -54,43 +54,40 @@ public class TestTopMusic {
 			salir();
 			break;
 		}
-		mostrarTop();
+		
 	}
-
-	
-		/**
-		 * Muestra el n∫ 1 del top
-		 */
-		private static void mostrarTop1() {
-			if (!topMusic.isEmpty())
-				System.out.println(topMusic.masEscuchada());
-			else
-				System.out.println("Top vacio!");
-	}
-	
 
 	/**
-	 * AÒade una cancion al top
+	 * Muestra el n¬∫ 1 del top
+	 */
+	private static void mostrarTop1() {
+		if (!topMusic.isEmpty())
+			System.out.println(topMusic.masEscuchada());
+		else
+			System.out.println("Top vacio!");
+	}
+
+	/**
+	 * A√±ade una cancion al top
 	 */
 	private static void annadirCancion() {
-		if (!topMusic.annadir(topMusic.posicionValida(Teclado.leerEntero("Posicion en el TopMusic:")), Teclado.leerCadena("Titulo:"),
-				Teclado.leerCadena("Artista:"), Teclado.leerCadena("AÒo:"))) {
-			System.out.println("No se pudo aÒadir");
+		if (!topMusic.annadir(topMusic.posicionValida(Teclado.leerEntero("Posicion en el TopMusic:")),
+				Teclado.leerCadena("Titulo:"), Teclado.leerCadena("Artista:"), Teclado.leerCadena("A√±o:"))) {
+			System.out.println("No se pudo a√±adir");
 		} else
-			System.out.println("Cancion aÒadida!");
+			System.out.println("Cancion a√±adida!");
 	}
 
 	/**
 	 * Elimina una cancion del top
 	 */
 	private static void eliminarCancion() {
-		if (!topMusic.isEmpty()) {
-			if (!topMusic.sacar(Teclado.leerCadena("Titulo:")))
-				System.out.println("No se pudo eliminar");
-			else
-				System.out.println("Cancion eliminada!");
-		} else
+		if (topMusic.isEmpty()) {
 			System.out.println("Top vacio!");
+		} else if (!topMusic.sacar(Teclado.leerCadena("Titulo:"))) {
+			System.out.println("No se pudo eliminar");
+		} else
+			System.out.println("Cancion eliminada!");
 	}
 
 	/**
@@ -99,7 +96,7 @@ public class TestTopMusic {
 	private static void subirCancion() {
 		if (!topMusic.isEmpty()) {
 			if (!topMusic.subir(topMusic.posicionValida(Teclado.leerEntero("Posicion:"))))
-				System.out.println("No se puede subir la canciÛn, ya es Top 1");
+				System.out.println("No se puede subir la canci√≥n, ya es Top 1");
 			else
 				System.out.println("Cancion subida!");
 		} else
@@ -128,6 +125,7 @@ public class TestTopMusic {
 		else
 			System.out.println("Top vacio!");
 	}
+
 	/**
 	 * Sale del programa
 	 */

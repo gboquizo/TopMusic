@@ -1,48 +1,49 @@
 package listadoestructuras3.topMusic;
+
 /**
- * Implementa  un  programa  que  gestione  una  lista  de  las  canciones  m·s 
- * escuchadas. El usuario podr·:
+ * Implementa un programa que gestione una lista de las canciones m√°s
+ * escuchadas. El usuario podr√°:
  * 
- * a. AÒadir una canciÛn (en una posiciÛn) al TopMusic.
- * b. Sacar un elemento del TopMusic.
- * c. Subir un puesto en el TopMusic.
- * d. Bajar un puesto en el TopMusic.
- * e. Mostrar la lista TopMusic.
- * f. Mostrar la canciÛn m·s escuchada.
+ * a. A√±adir una canci√≥n (en una posici√≥n) al TopMusic. b. Sacar un elemento del
+ * TopMusic. c. Subir un puesto en el TopMusic. d. Bajar un puesto en el
+ * TopMusic. e. Mostrar la lista TopMusic. f. Mostrar la canci√≥n m√°s escuchada.
  *
- * Sobre la canciÛn se almacenar· el tÌtulo, artista o grupo y aÒo de grabaciÛn
+ * Sobre la canci√≥n se almacenar√° el t√≠tulo, artista o grupo y a√±o de grabaci√≥n
  * 
- * @author Guillermo Boquizo S·nchez
- * @version 1.0
+ * @author Guillermo Boquizo S√°nchez
+ * @version 2.0
  */
 public class Cancion {
 	/**
-	 * TÌtulo de la canciÛn
+	 * T√≠tulo de la canci√≥n
 	 */
 	private String titulo;
-	
+
 	/**
 	 * Nombre del artista
 	 */
 	private String artista;
-	
+
 	/**
-	 * AÒo de grabaciÛn
+	 * A√±o de grabaci√≥n
 	 */
 	private String annoGrabacion;
-	
+
 	/**
-	 * Constructor que recibe el tÌtulo, el artista y el aÒo
-	 * @param titulo de la canciÛn
+	 * Constructor que recibe el t√≠tulo, el artista y el a√±o
+	 * 
+	 * @param titulo
+	 *            de la canci√≥n
 	 * @param artista
-	 * @param anno de grabaciÛn
+	 * @param anno
+	 *            de grabaci√≥n
 	 */
-	public Cancion(String titulo,String artista,String annoGrabacion){
+	public Cancion(String titulo, String artista, String annoGrabacion) {
 		setTitulo(titulo);
 		setArtista(artista);
 		setannoGrabacion(annoGrabacion);
 	}
-	
+
 	/**
 	 * Constructor solo con un titulo
 	 * 
@@ -50,10 +51,11 @@ public class Cancion {
 	 */
 	public Cancion(String titulo) {
 		setTitulo(titulo);
-}
+	}
 
 	/**
-	 * Lee el tÌtulo de la canciÛn
+	 * Lee el t√≠tulo de la canci√≥n
+	 * 
 	 * @return titulo
 	 */
 	public String getTitulo() {
@@ -61,7 +63,8 @@ public class Cancion {
 	}
 
 	/**
-	 * Escribe el tÌtulo de la canciÛn
+	 * Escribe el t√≠tulo de la canci√≥n
+	 * 
 	 * @param titulo
 	 */
 	private void setTitulo(String titulo) {
@@ -70,6 +73,7 @@ public class Cancion {
 
 	/**
 	 * Lee el nombre del artista
+	 * 
 	 * @return artista
 	 */
 	public String getArtista() {
@@ -78,6 +82,7 @@ public class Cancion {
 
 	/**
 	 * Escribe el nombre del artista
+	 * 
 	 * @param artista
 	 */
 	private void setArtista(String artista) {
@@ -85,23 +90,26 @@ public class Cancion {
 	}
 
 	/**
-	 * Lee el aÒo de grabaciÛn
+	 * Lee el a√±o de grabaci√≥n
+	 * 
 	 * @return annoGrabacion
 	 */
 	public String getannoGrabacion() {
 		return annoGrabacion;
 	}
 
-	
 	/**
-	 * Escribe al aÒo de grabaciÛn
+	 * Escribe al a√±o de grabaci√≥n
+	 * 
 	 * @param annoGrabacion
 	 */
 	private void setannoGrabacion(String annoGrabacion) {
 		this.annoGrabacion = annoGrabacion;
 	}
 
-	/* (sin Javadoc)
+	/*
+	 * (sin Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -112,7 +120,9 @@ public class Cancion {
 		return result;
 	}
 
-	/* (sin Javadoc)
+	/*
+	 * (sin Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -134,6 +144,6 @@ public class Cancion {
 
 	@Override
 	public String toString() {
-		return "Titulo: " + titulo + "\nArtista: " + artista + "\nAÒo: " + annoGrabacion + "\n";
+		return "Titulo: " + titulo + "\nArtista: " + artista + "\nA√±o: " + annoGrabacion + "\n";
 	}
 }

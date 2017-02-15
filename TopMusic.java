@@ -1,42 +1,39 @@
 package listadoestructuras3.topMusic;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+//import java.util.Iterator;
 
 /**
- * Implementa  un  programa  que  gestione  una  lista  de  las  canciones  m·s 
- * escuchadas. El usuario podr·:
+ * Implementa un programa que gestione una lista de las canciones m√°s
+ * escuchadas. El usuario podr√°:
  * 
- * a. AÒadir una canciÛn (en una posiciÛn) al TopMusic.
- * b. Sacar un elemento del TopMusic.
- * c. Subir un puesto en el TopMusic.
- * d. Bajar un puesto en el TopMusic.
- * e. Mostrar la lista TopMusic.
- * f. Mostrar la canciÛn m·s escuchada.
+ * a. A√±adir una canci√≥n (en una posici√≥n) al TopMusic. b. Sacar un elemento del
+ * TopMusic. c. Subir un puesto en el TopMusic. d. Bajar un puesto en el
+ * TopMusic. e. Mostrar la lista TopMusic. f. Mostrar la canci√≥n m√°s escuchada.
  *
- * Sobre la canciÛn se almacenar· el tÌtulo, artista o grupo y aÒo de grabaciÛn
+ * Sobre la canci√≥n se almacenar√° el t√≠tulo, artista o grupo y a√±o de grabaci√≥n
  * 
- * @author Guillermo Boquizo S·nchez
- * @version 1.0
+ * @author Guillermo Boquizo S√°nchez
+ * @version 2.0
  */
 public class TopMusic {
 	/**
 	 * ArrayList
 	 */
-	private ArrayList<Cancion> topMusic=null;
-	
+	private ArrayList<Cancion> topMusic = null;
+
 	/**
 	 * Constructor
 	 */
-	public TopMusic(){
-		topMusic=new ArrayList<Cancion>();
+	public TopMusic() {
+		topMusic = new ArrayList<Cancion>();
 	}
-	
+
 	/**
-	 * AÒade una cancion al TopMusic
+	 * A√±ade una cancion al TopMusic
 	 * 
 	 * @param cancion
-	 *            a aÒadir
+	 *            a a√±adir
 	 * @param titulo
 	 * @param artista
 	 * @param annoGrabacion
@@ -47,8 +44,8 @@ public class TopMusic {
 		else
 			topMusic.add(indice, new Cancion(titulo, artista, annoGrabacion));
 		return true;
-}
-	
+	}
+
 	/**
 	 * Saca una cancion del top music
 	 * 
@@ -64,51 +61,69 @@ public class TopMusic {
 
 	}
 
-	
 	/**
 	 * Sube una posicion una cancion
 	 * 
 	 * @param cancion
 	 */
 	boolean subir(int indice) {
-		if (fueraDeRango(indice))
-			return false;
-		if (indice - 2 < 0)
+		if (fueraDeRango(indice) || (indice - 2 < 0))
 			return false;
 		topMusic.add(indice - 2, topMusic.remove(indice - 1));
 		return true;
 
-}
-	
+	}
+
 	/**
 	 * Baja una posicion una cancion
 	 * 
 	 * @param cancion
 	 */
 	boolean bajar(int indice) {
-		if (fueraDeRango(indice))
-			return false;
-		if (indice > topMusic.size() - 1)
+		if (fueraDeRango(indice) || (indice > topMusic.size() - 1))
 			return false;
 		topMusic.add(indice + 1, topMusic.remove(indice - 1));
 		return true;
 
-}
+	}
+
 	/**
 	 * Muestra el top Music
 	 */
-	String mostrarTopMusic() {
-		String top = "";
-		int i = 1;
-		for (Iterator<Cancion> iterator = topMusic.iterator(); iterator.hasNext();)
-			top += "\n" + (i++) + " " + iterator.next();
-		return top;
-}
+	StringBuilder mostrarTopMusic() {
+		StringBuilder top = new StringBuilder("");
+		//for (Iterator<Cancion> iterator = topMusic.iterator(); iterator.hasNext();)
+			if (topMusic.size() > 0) {
+				top.append("Top Ten:\n");
+				for (int i = 0; i < tamannoTop(); i++) {
+					top.append(topMusic.get(i).toString() + "\n");
+				}
+			}else
+					top.append("no hay canciones, introduce algunas primero");
+			return top;
+			} 
+
+		
+	
+
+	/**
+	 * @return tamanno de la lista
+	 */
+	int tamannoTop() {
+		int tamannoTop = 10;
+		if (topMusic.size() < 10)
+			tamannoTop = topMusic.size();
+		return tamannoTop;
+	}
+
 	/**
 	 * Muestra la cancion del top
 	 */
 	String masEscuchada() {
-		return " Top 1: " + topMusic.get(0);
+		if (topMusic.size() > 0)
+			return "Top 1: \n" + topMusic.get(0);
+		return "No hay canciones, introduce algunas primero";
+		
 	}
 
 	/**
@@ -138,11 +153,12 @@ public class TopMusic {
 
 	/**
 	 * indica si la lista esta vacia o no
+	 * 
 	 * @return
 	 */
 	boolean isEmpty() {
 		return topMusic.isEmpty();
-}
+	}
 
 	/*
 	 * (non-Javadoc)
